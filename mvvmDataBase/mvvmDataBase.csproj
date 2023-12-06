@@ -118,5 +118,9 @@
   <ItemGroup>
     <Resource Include="Resources\closeIco.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BackGroundDark.jpg" />
+    <Resource Include="Resources\BackGroundLight.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

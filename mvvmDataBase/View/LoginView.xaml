@@ -18,13 +18,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.Background>
-            <LinearGradientBrush>
-                <GradientStop Color="#b5179e" Offset="0"/>
-                <GradientStop Color="#7209b7" Offset="1"/>
-            </LinearGradientBrush>
+            <ImageBrush ImageSource="/Resources/BackGroundDark.jpg"/>
         </Grid.Background>
         <Image Source="/Resources/closeIco.png" Grid.Column="2" Style="{StaticResource ImageClose}" MouseUp="Image_MouseUp" Panel.ZIndex="2"/>
-        <Border CornerRadius="15" Grid.Column="1" Grid.Row="1" MinWidth="250" Background="#194895EF">
+        <Border CornerRadius="15" Grid.Column="1" Grid.Row="1" MinWidth="250" Background="#93000000">
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Sign In" Style="{StaticResource HederStyle}" Foreground="#deaaff"/>
                 <Border BorderThickness="1" BorderBrush="#deaaff"  CornerRadius="5" Margin="10,40,10,0">
