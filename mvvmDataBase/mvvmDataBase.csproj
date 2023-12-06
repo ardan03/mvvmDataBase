@@ -122,5 +122,9 @@
     <Resource Include="Resources\BackGroundDark.jpg" />
     <Resource Include="Resources\BackGroundLight.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="VewModel\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
