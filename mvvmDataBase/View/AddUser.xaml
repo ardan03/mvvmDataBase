@@ -1,0 +1,28 @@
+﻿<Window x:Class="mvvmDataBase.View.AddUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mvvmDataBase.View"
+        mc:Ignorable="d"
+        Title="AddUser" Height="357" Width="370" Background="Transparent" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,0,10">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/BackGroundDark.jpg"/>
+        </Grid.Background>
+
+        <Border CornerRadius="25" Background="#59000000" Margin="20">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Name" Style="{StaticResource textHint}" Margin="5"/>
+                <TextBox Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" Margin="5"/>
+                <TextBlock Text="Password" Style="{StaticResource textHint}" Margin="5"/>
+                <TextBox Text="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" Margin="5"/>
+                <TextBlock Text="User Name" Style="{StaticResource textHint}" Margin="5"/>
+                <TextBox Text="{Binding Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" Margin="5"/>
+                <TextBlock Text="Access Level" Style="{StaticResource textHint}" Margin="5"/>
+                <TextBox Text="{Binding AccessLevel ,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" Margin="5"/>
+                <Button Content="Создать" Style="{StaticResource ButtonStyle}" Margin="5,10,5,3" Command="{Binding AddUserCommand}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

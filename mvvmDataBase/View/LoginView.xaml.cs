@@ -1,5 +1,7 @@
-﻿using System;
+﻿using mvvmDataBase.VewModel;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +24,7 @@ namespace mvvmDataBase.View
         public LoginView()
         {
             InitializeComponent();
+            DataContext = new LoginViewModel();
         }
         private void textLogin_MouseDown(object sender, MouseButtonEventArgs e)
         {

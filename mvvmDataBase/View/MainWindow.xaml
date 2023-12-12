@@ -1,0 +1,27 @@
+﻿<Window x:Class="mvvmDataBase.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mvvmDataBase.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"  WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="#F5F5F5">
+        <Grid Background="White" Grid.Row="1" Margin="25,40,25,15" >
+            <TextBox Name="FilterTextBox" Height="30" Width="200" Margin="25" VerticalAlignment="Top"  HorizontalAlignment="left" BorderThickness="1" BorderBrush="#E0E0E0" />
+            <Button Height="30" Content="Add User" Width="100" VerticalContentAlignment="Center" Padding="5" Margin="25" VerticalAlignment="Top" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="#E0E0E0"  Command="{Binding OpenAddWindow}"/>
+            <ListView Name="UserList" BorderBrush="#cdcdcd" Margin="25,70,25,25" Padding="0" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="auto" DisplayMemberBinding="{Binding id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="User Name" Width="auto" DisplayMemberBinding="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Password" Width="auto" DisplayMemberBinding="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Access Level" Width="auto" DisplayMemberBinding="{Binding AccessLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+
+    </Grid>
+</Window>
