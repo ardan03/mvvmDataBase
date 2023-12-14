@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mvvmDataBase.View" xmlns:viewModel="clr-namespace:mvvmDataBase.VewModel" xmlns:customcontrols="clr-namespace:DataBase.CustomControls"
         mc:Ignorable="d"
-        Title="LoginView" Height="450" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="LoginView" Height="447" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -49,6 +49,7 @@
                 </Border>
                 <TextBlock  Text="{Binding ErrorMessage}"  TextWrapping="Wrap" Foreground="#ff4d6d" FontSize="14" FontWeight="Medium" Margin="5"/>
                 <Button Content="Sign In" Style="{StaticResource  mainButton}" Command="{Binding LoginCommand}"/>
+                <TextBlock Background="Transparent" Margin="5">У вас нет аккаунта?<Button Background="Transparent" Command="{Binding LoginCommand}"><TextBlock Background="Transparent" Foreground="Blue" Text="Зарегестрируетесь!"/></Button></TextBlock>
             </StackPanel>
         </Border>
     </Grid>

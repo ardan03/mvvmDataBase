@@ -10,7 +10,7 @@
         <Grid Background="White" Grid.Row="1" Margin="25,40,25,15" >
             <TextBox Name="FilterTextBox" Height="30" Width="200" Margin="25" VerticalAlignment="Top"  HorizontalAlignment="left" BorderThickness="1" BorderBrush="#E0E0E0" />
             <Button Height="30" Content="Add User" Width="100" VerticalContentAlignment="Center" Padding="5" Margin="25" VerticalAlignment="Top" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="#E0E0E0"  Command="{Binding OpenAddWindow}"/>
-            <ListView Name="UserList" BorderBrush="#cdcdcd" Margin="25,70,25,25" Padding="0" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ListView Name="UserList" BorderBrush="#cdcdcd" Margin="25,70,25,25" Padding="0" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="auto" DisplayMemberBinding="{Binding id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -18,6 +18,7 @@
                         <GridViewColumn Header="Password" Width="auto" DisplayMemberBinding="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <GridViewColumn Header="Access Level" Width="auto" DisplayMemberBinding="{Binding AccessLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        
                     </GridView>
                 </ListView.View>
             </ListView>

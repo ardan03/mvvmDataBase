@@ -16,9 +16,10 @@ C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\LoginView.b
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\Thems\DarkTems.baml
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\App.baml
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\CustomControls\BindablePasswordBox.g.cs
-C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\CustomControls\BindablePasswordBox.baml
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\MainWindow.g.cs
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\MainWindow.baml
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\AddUser.g.cs
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\AddUser.baml
+C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\userWindow.g.cs
+C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\userWindow.baml

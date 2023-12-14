@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mvvmDataBase.View"
         mc:Ignorable="d"
-        Title="AddUser" Height="357" Width="370" Background="Transparent" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="AddUser" Height="390" Width="370" Background="Transparent" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,0,10">
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/BackGroundDark.jpg"/>
@@ -21,6 +21,7 @@
                 <TextBox Text="{Binding Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" Margin="5"/>
                 <TextBlock Text="Access Level" Style="{StaticResource textHint}" Margin="5"/>
                 <TextBox Text="{Binding AccessLevel ,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" Margin="5"/>
+                <TextBlock  Text="{Binding ErrorMessage}"  TextWrapping="Wrap" Foreground="#ff4d6d" FontSize="14" FontWeight="Medium" Margin="5"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>

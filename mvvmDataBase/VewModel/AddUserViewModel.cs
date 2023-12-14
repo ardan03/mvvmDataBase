@@ -17,7 +17,7 @@ namespace mvvmDataBase.VewModel
         private ObservableCollection<Users> _users;
         private Users _selectedUser;
         private Users _currentUser = new Users();
-
+        private string _errorMessage;
         public ObservableCollection<Users> Users
         {
             get { return _users; }
@@ -95,10 +95,23 @@ namespace mvvmDataBase.VewModel
             {
                 if (_currentUser.AccessLevel != Convert.ToInt32(value))
                 {
-                _currentUser.AccessLevel = Convert.ToInt32(value);
-                OnPropertyChanged(nameof(AccessLevel));
-                    
+                    _currentUser.AccessLevel = Convert.ToInt32(value);
+                    OnPropertyChanged(nameof(AccessLevel));
+
                 }
+            }
+        }
+        public string ErrorMessage
+        {
+            get
+            {
+                return _errorMessage;
+            }
+
+            set
+            {
+                _errorMessage = value;
+                OnPropertyChanged(nameof(ErrorMessage));
             }
         }
         public ICommand AddUserCommand { get; private set; }
@@ -123,7 +136,11 @@ namespace mvvmDataBase.VewModel
                     Username = _currentUser.Username,
                     AccessLevel = _currentUser.AccessLevel,
                 };
-
+                if (_databaseLogic.inDataBase(newUser))
+                {
+                    ErrorMessage = "*Такой пользователь уже есть";
+                    return;
+                }
                 // Добавление нового пользователя в базу данных
                 _databaseLogic.AddUser(newUser);
 

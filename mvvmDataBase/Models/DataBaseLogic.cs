@@ -38,17 +38,34 @@ namespace mvvmDataBase.Models
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT COUNT(*) FROM [dbo].[User] WHERE UserName = @Username AND Password = @Password";
+                string query = "SELECT COUNT(*) FROM [dbo].[User] WHERE UserName = @Username AND Password = @Password AND AccessLevel = @AccessLevel";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Username", user.Username);
                     command.Parameters.AddWithValue("@Password", user.Password);
+                    command.Parameters.AddWithValue("@AccessLevel", Convert.ToInt32(user.AccessLevel));
 
                     connection.Open();
-                    var u = command.ExecuteScalar();
+                    int u = Convert.ToInt32(command.ExecuteScalar());
 
-                    return u !=null;
+                    return u >0;
+                }
+            }
+        }
+        public bool inDataBase(Users user)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM [dbo].[User] WHERE UserName = @Username";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", user.Username);
+                    connection.Open();
+                    int u = Convert.ToInt32(command.ExecuteScalar());
+
+                    return u >0;
                 }
             }
         }

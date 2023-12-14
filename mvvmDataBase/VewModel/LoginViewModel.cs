@@ -77,15 +77,28 @@ namespace mvvmDataBase.VewModel
         }
         private void LogIN(object parament)
         {
+            if(Username==null || Password == null)
+            {
+                ErrorMessage = "Вы не заполнели Поля";
+                return;
+            }
+            _currentUser.AccessLevel = 0;
             if (_databaseLogic.LogIn(_currentUser))
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 Application.Current.Windows[0].Close();
             }
+            _currentUser.AccessLevel = 1;
+            if (_databaseLogic.LogIn(_currentUser))
+            {
+                userWindow mainWindow = new userWindow();
+                mainWindow.Show();
+                Application.Current.Windows[0].Close();
+            }
             else
             {
-                _errorMessage = "Ошибка";
+                ErrorMessage = "Такого пользователя нет";
             }
         }
     }
