@@ -132,7 +132,7 @@ namespace mvvmDataBase.VewModel
                 // Очистка полей после регистрации
                 _currentUser.Name = null;
                 _currentUser.Password=null;
-                _currentUser.Username= null;
+                _currentUser.Username = null;
                 Application.Current.Windows[0].Close();
                 mainWindow.Show();
             }

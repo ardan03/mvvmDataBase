@@ -11,44 +11,41 @@ using System.Windows.Input;
 using mvvmDataBase.Models;
 using mvvmDataBase.Repositories;
 using mvvmDataBase.Commands;
+using mvvmDataBase.View;
+using System.Windows;
 
 namespace mvvmDataBase.VewModel
 {
     public class LoginViewModel : ViewModelBase
     {
         //Fields
-        private string _username;
-        private SecureString _password;
         private string _errorMessage;
-        private bool _isViewVisible = true;
-
-
+        private Users _currentUser = new Users();
+        private DataBaseLogic _databaseLogic;
         //Properties
         public string Username
         {
-            get
-            {
-                return _username;
-            }
-
+            get { return _currentUser.Username; }
             set
             {
-                _username = value;
-                OnPropertyChanged(nameof(Username));
+                if (_currentUser.Username != value)
+                {
+                    _currentUser.Username = value;
+                    OnPropertyChanged(nameof(Username));
+                }
             }
         }
 
-        public SecureString Password
+        public string Password
         {
-            get
-            {
-                return _password;
-            }
-
+            get { return _currentUser.Password; }
             set
             {
-                _password = value;
-                OnPropertyChanged(nameof(Password));
+                if (_currentUser.Password != value)
+                {
+                    _currentUser.Password = value;
+                    OnPropertyChanged(nameof(Password));
+                }
             }
         }
 
@@ -66,22 +63,8 @@ namespace mvvmDataBase.VewModel
             }
         }
 
-        public bool IsViewVisible
-        {
-            get
-            {
-                return _isViewVisible;
-            }
-
-            set
-            {
-                _isViewVisible = value;
-                OnPropertyChanged(nameof(IsViewVisible));
-            }
-        }
-
         //-> Commands
-        public ICommand LoginCommand { get; }
+        public ICommand LoginCommand { get; set; }
         public ICommand RecoverPasswordCommand { get; }
         public ICommand ShowPasswordCommand { get; }
         public ICommand RememberPasswordCommand { get; }
@@ -89,23 +72,21 @@ namespace mvvmDataBase.VewModel
         //Constructor
         public LoginViewModel()
         {
-            RecoverPasswordCommand = new RelsyCommand(p => ExecuteRecoverPassCommand("", ""));
+            _databaseLogic = new DataBaseLogic("Data Source=localhost;Initial Catalog=User;Integrated Security=True;Encrypt=False");
+            LoginCommand = new RelsyCommand(LogIN);
         }
-
-        private bool CanExecuteLoginCommand(object obj)
+        private void LogIN(object parament)
         {
-            bool validData;
-            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 ||
-                Password == null || Password.Length < 3)
-                validData = false;
+            if (_databaseLogic.LogIn(_currentUser))
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                Application.Current.Windows[0].Close();
+            }
             else
-                validData = true;
-            return validData;
-        }
-
-        private void ExecuteRecoverPassCommand(string username, string email)
-        {
-            throw new NotImplementedException();
+            {
+                _errorMessage = "Ошибка";
+            }
         }
     }
 }

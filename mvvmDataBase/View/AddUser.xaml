@@ -21,7 +21,14 @@
                 <TextBox Text="{Binding Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" Margin="5"/>
                 <TextBlock Text="Access Level" Style="{StaticResource textHint}" Margin="5"/>
                 <TextBox Text="{Binding AccessLevel ,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" Margin="5"/>
-                <Button Content="Создать" Style="{StaticResource ButtonStyle}" Margin="5,10,5,3" Command="{Binding AddUserCommand}"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Создать" Style="{StaticResource ButtonStyle}" Margin="5,10,5,3" Command="{Binding AddUserCommand}"/>
+                    <Button Content="Отмена" Style="{StaticResource ButtonStyle}" Margin="5,10,5,3" Command="{Binding AddUserCommand}" Grid.Column="1"/>
+                </Grid>
             </StackPanel>
         </Border>
     </Grid>

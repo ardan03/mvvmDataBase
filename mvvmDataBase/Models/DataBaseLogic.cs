@@ -34,6 +34,24 @@ namespace mvvmDataBase.Models
                 }
             }
         }
+        public bool LogIn(Users user)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM [dbo].[User] WHERE UserName = @Username AND Password = @Password";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", user.Username);
+                    command.Parameters.AddWithValue("@Password", user.Password);
+
+                    connection.Open();
+                    var u = command.ExecuteScalar();
+
+                    return u !=null;
+                }
+            }
+        }
         public List<Users> GetUsers()
         {
             List<Users> users = new List<Users>();

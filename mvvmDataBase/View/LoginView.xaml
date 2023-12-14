@@ -6,15 +6,6 @@
         xmlns:local="clr-namespace:mvvmDataBase.View" xmlns:viewModel="clr-namespace:mvvmDataBase.VewModel" xmlns:customcontrols="clr-namespace:DataBase.CustomControls"
         mc:Ignorable="d"
         Title="LoginView" Height="450" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
-    <Window.DataContext>
-        <viewModel:LoginViewModel/>
-    </Window.DataContext>
-    <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisiability"/>
-    </Window.Resources>
-    <Window.Visibility>
-        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisiability}"/>
-    </Window.Visibility>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -45,8 +36,18 @@
 
                     </Grid>
                 </Border>
-                <customcontrols:BindablePasswordBox Password="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock  TextWrapping="Wrap" Foreground="#ff4d6d" FontSize="14" FontWeight="Medium" Margin="5"/>
+                <Border BorderThickness="1" BorderBrush="White"  CornerRadius="5" Margin="10,40,10,0">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/Resources/passwordIco.png" Height="20" />
+                        <TextBlock x:Name="textPassword" MouseDown="textPassword_MouseDown" Text="Password" Style="{StaticResource textHint}" Background="Transparent"/>
+                        <TextBox x:Name="txtPassword" Style="{StaticResource TextBoxStyle}" TextChanged="txtPassword_TextChanged" Background="Transparent" BorderThickness="0" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                </Border>
+                <TextBlock  Text="{Binding ErrorMessage}"  TextWrapping="Wrap" Foreground="#ff4d6d" FontSize="14" FontWeight="Medium" Margin="5"/>
                 <Button Content="Sign In" Style="{StaticResource  mainButton}" Command="{Binding LoginCommand}"/>
             </StackPanel>
         </Border>
