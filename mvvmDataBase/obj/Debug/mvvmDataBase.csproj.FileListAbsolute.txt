@@ -23,3 +23,6 @@ C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\AddUser.g.c
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\AddUser.baml
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\userWindow.g.cs
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\userWindow.baml
+C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\UpdateUser.g.cs
+C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\UpdateUser.baml
+C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\Thems\LightThems.baml

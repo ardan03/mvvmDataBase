@@ -32,19 +32,57 @@ namespace mvvmDataBase.VewModel
             get { return _selectedUser; }
             set
             {
-                _selectedUser = value;
-                OnPropertyChanged(nameof(SelectedUser));
+                if (_selectedUser != value)
+                {
+                    _selectedUser = value;
+                    OnPropertyChanged(nameof(SelectedUser));
+                }
             }
         }
         private DataBaseLogic _databaseLogic;
         public ICommand ResCommand { get; set; }
         public ICommand OpenAddWindow {  get; set; }
+        public ICommand DeleteComand {  get; set; }
+        public ICommand UpdateComand {  get; set; }
+        public ICommand OpenSettings { get; set; }
         public MainWindowVM()
         {
             _databaseLogic = new DataBaseLogic("Data Source=localhost;Initial Catalog=User;Integrated Security=True;Encrypt=False");
             LoadUserData();
             OpenAddWindow = new RelsyCommand(openAddWindow);
+            DeleteComand = new RelsyCommand(DeleteUser);
+            UpdateComand = new RelsyCommand(UpdateUser);
+            OpenSettings = new RelsyCommand(openSetings);
         }
+
+        private void openSetings(object obj)
+        {
+            settungWindow settungWindow = new settungWindow();
+            settungWindow.ShowDialog();
+        }
+
+        private void UpdateUser(object obj)
+        {
+            if (SelectedUser == null)
+            {
+                return;
+            }
+            UpdateUser UU = new UpdateUser();
+            UU.ShowDialog();
+            var dataTable = _databaseLogic.GetUserData();
+            Users = ConvertDataTableToObservableCollection(dataTable);
+        }
+
+        private void DeleteUser(object parament)
+        {
+            if(SelectedUser == null)
+            {
+                return;
+            }
+            _databaseLogic.Delete(SelectedUser);
+            LoadUserData();
+        }
+
         private void LoadUserData()
         {
             var dataTable = _databaseLogic.GetUserData();
@@ -72,9 +110,9 @@ namespace mvvmDataBase.VewModel
         private void openAddWindow(object parameter)
         {
             AddUser addUser = new AddUser();
-            addUser.Show();
-            Application.Current.Windows[0].Close();
-
+            addUser.ShowDialog();
+            var dataTable = _databaseLogic.GetUserData();
+            Users = ConvertDataTableToObservableCollection(dataTable);
         }
     }
 }

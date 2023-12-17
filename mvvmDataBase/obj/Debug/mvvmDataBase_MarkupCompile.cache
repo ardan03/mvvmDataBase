@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\App.xaml
-6-1561286074
+8-965088575
 
-18-783649953
+20-1085761821
 13-38814620
-CustomControls\BindablePasswordBox.xaml;Thems\DarkTems.xaml;View\AddUser.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\userWindow.xaml;
+CustomControls\BindablePasswordBox.xaml;Thems\DarkTems.xaml;Thems\LightThems.xaml;View\AddUser.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\UpdateUser.xaml;View\userWindow.xaml;
 
 False
 

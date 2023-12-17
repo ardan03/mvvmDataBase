@@ -70,6 +70,8 @@
     <Compile Include="VewModel\AddUserViewModel.cs" />
     <Compile Include="VewModel\LoginViewModel.cs" />
     <Compile Include="VewModel\MainWindowVM.cs" />
+    <Compile Include="VewModel\SettingViewModel.cs" />
+    <Compile Include="VewModel\UpdateUserViewModel.cs" />
     <Compile Include="VewModel\ViewModelBase.cs" />
     <Compile Include="View\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
@@ -79,6 +81,12 @@
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\settungWindow.xaml.cs">
+      <DependentUpon>settungWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateUser.xaml.cs">
+      <DependentUpon>UpdateUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\userWindow.xaml.cs">
       <DependentUpon>userWindow.xaml</DependentUpon>
@@ -119,6 +127,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Thems\LightThems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +140,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\settungWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UpdateUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,6 +171,9 @@
   <ItemGroup>
     <Resource Include="Resources\BackGroundDark.jpg" />
     <Resource Include="Resources\BackGroundLight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\settingsIco.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

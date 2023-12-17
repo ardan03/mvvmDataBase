@@ -5,12 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mvvmDataBase.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"  WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
-    <Grid Background="#F5F5F5">
-        <Grid Background="White" Grid.Row="1" Margin="25,40,25,15" >
-            <TextBox Name="FilterTextBox" Height="30" Width="200" Margin="25" VerticalAlignment="Top"  HorizontalAlignment="left" BorderThickness="1" BorderBrush="#E0E0E0" />
-            <Button Height="30" Content="Add User" Width="100" VerticalContentAlignment="Center" Padding="5" Margin="25" VerticalAlignment="Top" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="#E0E0E0"  Command="{Binding OpenAddWindow}"/>
-            <ListView Name="UserList" BorderBrush="#cdcdcd" Margin="25,70,25,25" Padding="0" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+        Title="MainWindow" Height="450" Width="600"  WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Style="{StaticResource Background}">
+        <Image Source="/Resources/closeIco.png" Grid.Column="2" Style="{StaticResource ImageClose}" MouseUp="Image_MouseUp" Panel.ZIndex="2"/>
+        <Grid Background="Transparent" Grid.Row="1" Margin="25,40,25,15" >
+            <Button Style="{StaticResource SettingsButton}" MaxHeight="30" MaxWidth="30"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <Button Height="55" Content="Add User" Width="100" VerticalContentAlignment="Center" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{StaticResource  mainButton}" Command="{Binding OpenAddWindow}"/>
+            <ListView Name="UserList" Style="{StaticResource DataBase}" Margin="25,70,25,25" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                <ListView.Resources >
+                    <Style TargetType="GridViewColumnHeader">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="White"/>
+                    </Style>
+                </ListView.Resources>
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="auto" DisplayMemberBinding="{Binding id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -18,7 +28,17 @@
                         <GridViewColumn Header="Password" Width="auto" DisplayMemberBinding="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <GridViewColumn Header="Access Level" Width="auto" DisplayMemberBinding="{Binding AccessLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        
+                        <GridViewColumn Header="Actions" Width="auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="удалить" Command="{Binding DataContext.DeleteComand, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}">
+                                        </Button>
+                                        <Button Content="обновить" Command="{Binding Button2Command}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

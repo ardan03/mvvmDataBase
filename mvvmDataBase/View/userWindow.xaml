@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mvvmDataBase.View"
         mc:Ignorable="d"
-        Title="userWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="userWindow" Height="450" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Style="{StaticResource Background}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Личный Кабинет" Style="{StaticResource HederStyle}"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Имя" Style="{StaticResource HederStyle}" Grid.Column="0" Margin="100,25,0,0" />
+            <TextBox Style="{StaticResource TextBoxStyle}" Grid.Column="1" Margin="5,20,5,20" FontSize="30"/>
+            <TextBlock Text="User Name" Style="{StaticResource HederStyle}" Grid.Column="0" Grid.Row="1" Margin="50,25,0,0" />
+            <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="1" Margin="5,20,5,20" FontSize="30"/>
+            <TextBlock Text="Пароль" Style="{StaticResource HederStyle}" Grid.Column="0" Grid.Row="2" Margin="70,25,0,0" />
+            <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="1" Margin="5,20,5,20" FontSize="30"/>
+            <Button Style="{StaticResource ButtonStyle}" Grid.Column="0" Grid.Row="3" Content="Редактировать" Margin="10"/>
+            <Button Style="{StaticResource ButtonStyle}" Grid.Column="1" Grid.Row="3" Content="Выйти" Margin="10"/>
+        </Grid>
     </Grid>
 </Window>

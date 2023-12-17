@@ -53,6 +53,36 @@ namespace mvvmDataBase.Models
                 }
             }
         }
+        public void Delete(Users user)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = $"DELETE FROM [dbo].[User] WHERE id = {user.id}";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+        public void UpdateAdmin(Users user)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = $"UPDATE [dbo].[User] SET Name = @Name UserName = @Username , Password = @Password , AccessLevel = @AccessLevel WHERE id = {user.id}";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", user.Name);
+                    command.Parameters.AddWithValue("@Username", user.Username);
+                    command.Parameters.AddWithValue("@Password", user.Password);
+                    command.Parameters.AddWithValue("@AccessLevel", Convert.ToInt32(user.AccessLevel));
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
         public bool inDataBase(Users user)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

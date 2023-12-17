@@ -1,5 +1,4 @@
-﻿using mvvmDataBase.VewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,18 +15,13 @@ using System.Windows.Shapes;
 namespace mvvmDataBase.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для settungWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class settungWindow : Window
     {
-        public MainWindow()
+        public settungWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowVM();
-        }
-        private void Image_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            Application.Current.Windows[0].Close();
         }
     }
 }

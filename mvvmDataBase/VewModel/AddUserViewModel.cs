@@ -121,6 +121,25 @@ namespace mvvmDataBase.VewModel
             _databaseLogic = new DataBaseLogic("Data Source=localhost;Initial Catalog=User;Integrated Security=True;Encrypt=False");
             AddUserCommand = new RelsyCommand(AddUser);
         }
+        private ObservableCollection<Users> ConvertDataTableToObservableCollection(System.Data.DataTable dt)
+        {
+            var users = new ObservableCollection<Users>();
+
+            foreach (System.Data.DataRow row in dt.Rows)
+            {
+                var user = new Users
+                {
+                    id = Convert.ToInt32(row["ID"]),
+                    Username = row["UserName"].ToString(),
+                    Password = row["Password"].ToString(),
+                    Name = row["Name"].ToString(),
+                    AccessLevel = Convert.ToInt32(row["AccessLevel"])
+                };
+                users.Add(user);
+            }
+
+            return users;
+        }
         public void AddUser(object parameter)
         {
             MainWindow mainWindow = new MainWindow();
@@ -150,14 +169,14 @@ namespace mvvmDataBase.VewModel
                 _currentUser.Name = null;
                 _currentUser.Password=null;
                 _currentUser.Username = null;
-                Application.Current.Windows[0].Close();
-                mainWindow.Show();
             }
             else
             {
                 MessageBox.Show("Введите данные для регистрации!");
+                return;
             }
             
         }
+
     }
 }
