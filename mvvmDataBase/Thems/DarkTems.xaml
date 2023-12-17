@@ -120,4 +120,10 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="SwitchButton" TargetType="Button">
+        <Setter Property="Background" Value="#59000000"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
 </ResourceDictionary>

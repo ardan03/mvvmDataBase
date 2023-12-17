@@ -6,19 +6,19 @@
         xmlns:local="clr-namespace:mvvmDataBase.View"
         mc:Ignorable="d"
         Title="UpdateUser" Height="368" Width="370" Background="Transparent" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid Style="{StaticResource Background}" Margin="0,0,0,10">
+    <Grid Style="{DynamicResource Background}" Margin="0,0,0,10">
         
 
-        <Border Style="{StaticResource substrate}" Margin="20">
+        <Border Style="{DynamicResource substrate}" Margin="20">
             <StackPanel Orientation="Vertical">
-                <TextBlock Text="Name" Style="{StaticResource textHint}" Margin="5"/>
-                <TextBox Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{StaticResource TextBoxStyle}" Margin="5"/>
-                <TextBlock Text="Password" Style="{StaticResource textHint}" Margin="5"/>
-                <TextBox Text="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{StaticResource TextBoxStyle}" Margin="5"/>
-                <TextBlock Text="User Name" Style="{StaticResource textHint}" Margin="5"/>
-                <TextBox Text="{Binding Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{StaticResource TextBoxStyle}" Margin="5"/>
-                <TextBlock Text="Access Level" Style="{StaticResource textHint}" Margin="5"/>
-                <TextBox Text="{Binding AccessLevel ,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{StaticResource TextBoxStyle}" Margin="5"/>
+                <TextBlock Text="Name" Style="{DynamicResource textHint}" Margin="5"/>
+                <TextBox Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
+                <TextBlock Text="Password" Style="{DynamicResource textHint}" Margin="5"/>
+                <TextBox Text="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
+                <TextBlock Text="User Name" Style="{DynamicResource textHint}" Margin="5"/>
+                <TextBox Text="{Binding Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
+                <TextBlock Text="Access Level" Style="{DynamicResource textHint}" Margin="5"/>
+                <TextBox Text="{Binding AccessLevel ,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>

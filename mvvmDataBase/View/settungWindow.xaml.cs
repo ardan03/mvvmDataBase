@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mvvmDataBase.VewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace mvvmDataBase.View
         public settungWindow()
         {
             InitializeComponent();
+            DataContext = new SettingViewModel();
         }
+
     }
 }

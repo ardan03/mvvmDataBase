@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:mvvmDataBase.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="600"  WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
-    <Grid Style="{StaticResource Background}">
-        <Image Source="/Resources/closeIco.png" Grid.Column="2" Style="{StaticResource ImageClose}" MouseUp="Image_MouseUp" Panel.ZIndex="2"/>
+    <Grid Style="{DynamicResource Background}">
+        <Image Source="/Resources/closeIco.png" Grid.Column="2" Style="{DynamicResource ImageClose}" MouseUp="Image_MouseUp" Panel.ZIndex="2"/>
         <Grid Background="Transparent" Grid.Row="1" Margin="25,40,25,15" >
-            <Button Style="{StaticResource SettingsButton}" MaxHeight="30" MaxWidth="30"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <Button Height="55" Content="Add User" Width="100" VerticalContentAlignment="Center" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{StaticResource  mainButton}" Command="{Binding OpenAddWindow}"/>
-            <ListView Name="UserList" Style="{StaticResource DataBase}" Margin="25,70,25,25" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+            <Button Style="{DynamicResource SettingsButton}" MaxHeight="30" MaxWidth="30"  VerticalAlignment="Top" HorizontalAlignment="Left" Command="{Binding OpenSettings}"/>
+            <Button Height="55" Content="Add User" Width="100" VerticalContentAlignment="Center" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{DynamicResource  mainButton}" Command="{Binding OpenAddWindow}"/>
+            <ListView Name="UserList" Style="{DynamicResource DataBase}" Margin="25,70,25,25" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
                 <ListView.Resources >
                     <Style TargetType="GridViewColumnHeader">
                         <Setter Property="Background" Value="Transparent"/>

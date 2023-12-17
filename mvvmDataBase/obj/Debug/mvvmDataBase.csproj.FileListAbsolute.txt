@@ -26,3 +26,5 @@ C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\userWindow.
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\UpdateUser.g.cs
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\UpdateUser.baml
 C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\Thems\LightThems.baml
+C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\settungWindow.g.cs
+C:\Users\ardan\source\repos\mvvmDataBase\mvvmDataBase\obj\Debug\View\settungWindow.baml
