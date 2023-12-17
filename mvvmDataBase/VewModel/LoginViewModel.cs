@@ -65,16 +65,24 @@ namespace mvvmDataBase.VewModel
 
         //-> Commands
         public ICommand LoginCommand { get; set; }
-        public ICommand RecoverPasswordCommand { get; }
-        public ICommand ShowPasswordCommand { get; }
-        public ICommand RememberPasswordCommand { get; }
+        public ICommand OpenSigIN {  get; set; }
+
 
         //Constructor
         public LoginViewModel()
         {
             _databaseLogic = new DataBaseLogic("Data Source=localhost;Initial Catalog=User;Integrated Security=True;Encrypt=False");
             LoginCommand = new RelsyCommand(LogIN);
+            OpenSigIN = new RelsyCommand(OpenSigin);
         }
+
+        private void OpenSigin(object obj)
+        {
+            SignIn signIn = new SignIn();
+            signIn.Show();
+            Application.Current.Windows[0].Close();
+        }
+
         private void LogIN(object parament)
         {
             if(Username==null || Password == null)

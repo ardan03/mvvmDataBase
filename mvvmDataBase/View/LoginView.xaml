@@ -46,7 +46,7 @@
                 </Border>
                 <TextBlock  Text="{Binding ErrorMessage}" Style="{DynamicResource ErrrorMassage}"/>
                 <Button Content="Sign In" Style="{DynamicResource  mainButton}" Command="{Binding LoginCommand}"/>
-                <Button Margin="4,8,4,4" Background="Transparent">
+                <Button Margin="4,8,4,4" Background="Transparent" Command="{Binding OpenSigIN}">
                     <TextBlock Text="У вас нет аккаунта? Нажмите сюда и зарегистрируйся!" Foreground="#FF009CFF"/>
                 </Button>
             </StackPanel>

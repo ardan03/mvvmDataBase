@@ -1,0 +1,32 @@
+﻿<Window x:Class="mvvmDataBase.View.SignIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mvvmDataBase.View"
+        mc:Ignorable="d"
+        Title="SignIn" Height="368" Width="370" Background="Transparent" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Style="{DynamicResource Background}" Margin="0,0,0,48">
+
+
+        <Border Style="{DynamicResource substrate}" Margin="20">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Name" Style="{DynamicResource textHint}" Margin="5"/>
+                <TextBox Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
+                <TextBlock Text="Password" Style="{DynamicResource textHint}" Margin="5"/>
+                <TextBox Text="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
+                <TextBlock Text="User Name" Style="{DynamicResource textHint}" Margin="5"/>
+                <TextBox Text="{Binding Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
+                <TextBlock  Text="{Binding ErrorMessage}"  TextWrapping="Wrap" Foreground="#ff4d6d" FontSize="14" FontWeight="Medium" Margin="5"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Заренестрироваться" Style="{StaticResource ButtonStyle}" Margin="5,10,152,3" Command="{Binding SignIn}" Grid.ColumnSpan="2"/>
+                    <Button Content="Отмена" Style="{StaticResource ButtonStyle}" Margin="31,10,5,3" Grid.Column="1" Click="Button_Click"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
