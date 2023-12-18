@@ -7,12 +7,8 @@
         mc:Ignorable="d"
         Title="settungWindow" Height="450" Width="400" WindowStyle="None">
     <Grid Style="{DynamicResource Background}">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Button Content="{Binding ThemTxt}" Command="{Binding switchTems}" Background="#66612A2A" Margin="50,70,50,70" FontSize="36" Style="{DynamicResource SwitchButton}"/>
-        <Button Content="Закрыть" Grid.Row="1" Background="#66612A2A" Margin="50,70,50,70" FontSize="36" Style="{DynamicResource SwitchButton}" Click="Button_Click"/>
-        
+        <Image Source="/Resources/closeIco.png" Grid.Row="0" Style="{DynamicResource ImageClose}" MouseUp="Image_MouseUp" Panel.ZIndex="2"/>
+        <Button Content="{Binding ThemTxt}" Command="{Binding switchTems}" Background="#66612A2A" Margin="50,150,50,150" FontSize="36" Style="{DynamicResource SwitchButton}"/>
+
     </Grid>
 </Window>

@@ -18,7 +18,6 @@ namespace mvvmDataBase.VewModel
         private Users _selectedUser;
         private DataBaseLogic _databaseLogic;
         private Users _currentUser = new Users();
-        private string _errorMessage;
         public ObservableCollection<Users> Users
         {
             get { return _users; }
