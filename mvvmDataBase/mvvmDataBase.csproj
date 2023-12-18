@@ -64,8 +64,6 @@
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\DataBaseLogic.cs" />
-    <Compile Include="Models\UserAccountModel.cs" />
-    <Compile Include="Models\UserNow.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="VewModel\AddUserViewModel.cs" />

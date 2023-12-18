@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace mvvmDataBase.Models
 {
-    internal class DataBaseLogic
+    public class DataBaseLogic
     {
         private string connectionString = "Data Source=localhost;Initial Catalog=User;Integrated Security=True;Encrypt=False";
         public DataBaseLogic(string connectionString)
