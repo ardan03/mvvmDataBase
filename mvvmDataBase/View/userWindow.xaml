@@ -5,32 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mvvmDataBase.View"
         mc:Ignorable="d"
-        Title="userWindow" Height="450" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="userWindow" Height="267" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid Style="{DynamicResource Background}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Личный Кабинет" Style="{DynamicResource HederStyle}"/>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <TextBlock Text="Имя" Style="{DynamicResource HederStyle}" Grid.Column="0" Margin="100,25,0,0" />
-            <TextBox Style="{DynamicResource TextBoxStyle}" Grid.Column="1" Margin="5,20,5,20" FontSize="30"/>
-            <TextBlock Text="User Name" Style="{DynamicResource HederStyle}" Grid.Column="0" Grid.Row="1" Margin="50,25,0,0" />
-            <TextBox Style="{DynamicResource TextBoxStyle}" Grid.Row="1" Grid.Column="1" Margin="5,20,5,20" FontSize="30"/>
-            <TextBlock Text="Пароль" Style="{DynamicResource HederStyle}" Grid.Column="0" Grid.Row="2" Margin="70,25,0,0" />
-            <TextBox Style="{DynamicResource TextBoxStyle}" Grid.Row="2" Grid.Column="1" Margin="5,20,5,20" FontSize="30"/>
-            <Button Style="{DynamicResource ButtonStyle}" Grid.Column="0" Grid.Row="3" Content="Редактировать" Margin="10"/>
-            <Button Style="{DynamicResource ButtonStyle}" Grid.Column="1" Grid.Row="3" Content="Выйти" Margin="10"/>
-        </Grid>
+        <Image Source="/Resources/closeIco.png" Grid.Row="0" Style="{DynamicResource ImageClose}" MouseUp="Image_MouseUp" Panel.ZIndex="2"/>
+        <Button Style="{DynamicResource SettingsButton}" MaxHeight="30" MaxWidth="30"  VerticalAlignment="Top" HorizontalAlignment="Left" Command="{Binding OpenSettings}"/>
+        <ListView Grid.Row="1" Name="UserList" Style="{DynamicResource DataBase}" Margin="25,10,25,25" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+            <ListView.Resources >
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="auto" DisplayMemberBinding="{Binding id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <GridViewColumn Header="User Name" Width="auto" DisplayMemberBinding="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <GridViewColumn Header="Password" Width="auto" DisplayMemberBinding="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

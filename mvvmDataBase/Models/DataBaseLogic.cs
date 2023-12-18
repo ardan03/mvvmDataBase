@@ -70,14 +70,14 @@ namespace mvvmDataBase.Models
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = $"UPDATE [dbo].[User] SET Name = @Name UserName = @Username , Password = @Password , AccessLevel = @AccessLevel WHERE id = {user.id}";
+                string query = $"UPDATE [dbo].[User] SET Name = @Name , Password = @Password , AccessLevel = @AccessLevel WHERE UserName = @Username";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Name", user.Name);
-                    command.Parameters.AddWithValue("@Username", user.Username);
                     command.Parameters.AddWithValue("@Password", user.Password);
-                    command.Parameters.AddWithValue("@AccessLevel", Convert.ToInt32(user.AccessLevel));
+                    command.Parameters.AddWithValue("@AccessLevel", user.AccessLevel);
+                    command.Parameters.AddWithValue("@Username", user.Username);
                     connection.Open();
                     command.ExecuteNonQuery();
                 }

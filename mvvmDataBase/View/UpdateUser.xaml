@@ -3,29 +3,30 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:mvvmDataBase.View"
+        xmlns:local="clr-namespace:mvvmDataBase.View" xmlns:vm="clr-namespace:mvvmDataBase.VewModel"
         mc:Ignorable="d"
         Title="UpdateUser" Height="368" Width="370" Background="Transparent" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
     <Grid Style="{DynamicResource Background}" Margin="0,0,0,10">
         
 
         <Border Style="{DynamicResource substrate}" Margin="20">
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Name" Style="{DynamicResource textHint}" Margin="5"/>
-                <TextBox Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
+                <TextBox Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
                 <TextBlock Text="Password" Style="{DynamicResource textHint}" Margin="5"/>
-                <TextBox Text="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
+                <TextBox Text="{Binding Password,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
                 <TextBlock Text="User Name" Style="{DynamicResource textHint}" Margin="5"/>
-                <TextBox Text="{Binding Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
+                <TextBox Text="{Binding Username,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
                 <TextBlock Text="Access Level" Style="{DynamicResource textHint}" Margin="5"/>
-                <TextBox Text="{Binding AccessLevel ,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
+                <TextBox Text="{Binding AccessLevel ,UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Style="{DynamicResource TextBoxStyle}" Margin="5"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Создать" Style="{StaticResource ButtonStyle}" Margin="5,10,5,3" Command="{Binding AddUserCommand}"/>
-                    <Button Content="Отмена" Style="{StaticResource ButtonStyle}" Margin="5,10,5,3" Command="{Binding AddUserCommand}" Grid.Column="1"/>
+                    <Button Content="Создать" Style="{StaticResource ButtonStyle}" Margin="5,10,5,3" Command="{Binding UpdateCommand}"/>
+                    <Button Content="Отмена" Style="{StaticResource ButtonStyle}" Margin="5,10,5,3" Grid.Column="1" Click="Button_Click"/>
                 </Grid>
             </StackPanel>
         </Border>

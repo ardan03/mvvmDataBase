@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mvvmDataBase.VewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace mvvmDataBase.View
         public UpdateUser()
         {
             InitializeComponent();
+            DataContext = new UpdateUserVM();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

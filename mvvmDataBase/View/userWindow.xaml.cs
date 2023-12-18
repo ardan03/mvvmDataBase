@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mvvmDataBase.VewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace mvvmDataBase.View
         public userWindow()
         {
             InitializeComponent();
+            DataContext = new UserVM();
+        }
+
+        private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

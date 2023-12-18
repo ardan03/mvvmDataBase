@@ -26,5 +26,9 @@ namespace mvvmDataBase.View
             DataContext = new SettingViewModel();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

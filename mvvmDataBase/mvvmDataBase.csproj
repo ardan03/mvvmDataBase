@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Models\DataBaseLogic.cs" />
     <Compile Include="Models\UserAccountModel.cs" />
+    <Compile Include="Models\UserNow.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="VewModel\AddUserViewModel.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="VewModel\SettingViewModel.cs" />
     <Compile Include="VewModel\SignInVM.cs" />
     <Compile Include="VewModel\UpdateUserViewModel.cs" />
+    <Compile Include="VewModel\UpdateUserVM.cs" />
     <Compile Include="VewModel\UserVM.cs" />
     <Compile Include="VewModel\ViewModelBase.cs" />
     <Compile Include="View\AddUser.xaml.cs">

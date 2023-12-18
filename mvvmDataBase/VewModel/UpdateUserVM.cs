@@ -1,6 +1,4 @@
-﻿using mvvmDataBase.Commands;
-using mvvmDataBase.Models;
-using mvvmDataBase.View;
+﻿using mvvmDataBase.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,13 +7,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
+using System.Windows.Data;
+using mvvmDataBase.Commands;
 
 namespace mvvmDataBase.VewModel
 {
-    public class AddUserViewModel : ViewModelBase
+    public class UpdateUserVM:ViewModelBase
     {
         private ObservableCollection<Users> _users;
         private Users _selectedUser;
+        private DataBaseLogic _databaseLogic;
         private Users _currentUser = new Users();
         private string _errorMessage;
         public ObservableCollection<Users> Users
@@ -101,50 +102,15 @@ namespace mvvmDataBase.VewModel
                 }
             }
         }
-        public string ErrorMessage
-        {
-            get
-            {
-                return _errorMessage;
-            }
-
-            set
-            {
-                _errorMessage = value;
-                OnPropertyChanged(nameof(ErrorMessage));
-            }
-        }
-        public ICommand AddUserCommand { get; private set; }
-        private DataBaseLogic _databaseLogic;
-        public AddUserViewModel()
+        public ICommand UpdateCommand { get; set; }
+        public UpdateUserVM()
         {
             _databaseLogic = new DataBaseLogic("Data Source=localhost;Initial Catalog=User;Integrated Security=True;Encrypt=False");
-            AddUserCommand = new RelsyCommand(AddUser);
+            UpdateCommand = new RelsyCommand(Update);
+
         }
-        private ObservableCollection<Users> ConvertDataTableToObservableCollection(System.Data.DataTable dt)
+        private void Update(object Parament)
         {
-            var users = new ObservableCollection<Users>();
-
-            foreach (System.Data.DataRow row in dt.Rows)
-            {
-                var user = new Users
-                {
-                    id = Convert.ToInt32(row["ID"]),
-                    Username = row["UserName"].ToString(),
-                    Password = row["Password"].ToString(),
-                    Name = row["Name"].ToString(),
-                    AccessLevel = Convert.ToInt32(row["AccessLevel"])
-                };
-                users.Add(user);
-            }
-
-            return users;
-        }
-        public void AddUser(object parameter)
-        {
-            MainWindow mainWindow = new MainWindow();
-
-            // Проверка наличия заполненных данных о пользователе
             if (!string.IsNullOrWhiteSpace(_currentUser.Name) && !string.IsNullOrWhiteSpace(_currentUser.Password) && !string.IsNullOrWhiteSpace(_currentUser.Username))
             {
                 // Создание нового пользователя на основе введенных данных
@@ -155,15 +121,10 @@ namespace mvvmDataBase.VewModel
                     Username = _currentUser.Username,
                     AccessLevel = _currentUser.AccessLevel,
                 };
-                if (_databaseLogic.inDataBase(newUser))
-                {
-                    ErrorMessage = "*Такой пользователь уже есть";
-                    return;
-                }
                 // Добавление нового пользователя в базу данных
-                _databaseLogic.AddUser(newUser);
+                _databaseLogic.UpdateAdmin(newUser);
 
-                MessageBox.Show("Пользователь успешно зарегистрирован!");
+                MessageBox.Show("Пользователь успешно обновлен!");
 
                 // Очистка полей после регистрации
                 _currentUser.Name = null;
@@ -172,11 +133,9 @@ namespace mvvmDataBase.VewModel
             }
             else
             {
-                ErrorMessage = "*Введите данные для регистрации!";
+                MessageBox.Show("Пользователь неуспешно обновлен!");
                 return;
             }
-
         }
-
     }
 }

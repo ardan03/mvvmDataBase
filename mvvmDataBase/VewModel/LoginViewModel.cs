@@ -23,6 +23,13 @@ namespace mvvmDataBase.VewModel
         private Users _currentUser = new Users();
         private DataBaseLogic _databaseLogic;
         //Properties
+        public Users CurrrentUser
+        {
+            get { return _currentUser; }
+            set { _currentUser = value;
+                OnPropertyChanged(nameof(CurrrentUser));
+            }
+        }
         public string Username
         {
             get { return _currentUser.Username; }
